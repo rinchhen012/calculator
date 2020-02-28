@@ -95,8 +95,8 @@ num.forEach(button => button.addEventListener('mousedown', e => {
         console.log(inputArr)
         d = false;
     } else {
-        str = display.textContent;
         display.textContent = str + clickedValue;
+        str = display.textContent;
         op += clickedValue;
         console.log(inputArr)
     }
