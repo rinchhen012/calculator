@@ -1,7 +1,7 @@
 let clickedValue = '',
     display = document.querySelector('.display'),
     str = '', op = '', x, result, inputArr = [],
-    plusMinus = true, d = false;
+    plusMinus = true, d = false, y = '';
 
 function add(args) {
     return args.reduce((accum, arg) => accum + arg, 0);
@@ -76,7 +76,11 @@ function allClear() {
 function backSpace() {
     display.textContent = display.textContent.slice(0, -1);
     str = display.textContent;
-
+    op = display.textContent;
+    y = inputArr.slice(-1)[0];
+    y = y.slice(0, -1);
+    inputArr[inputArr.length - 1] = y;
+    inputArr = inputArr.filter(v => v != '');
 }
 
 // event listeners for 'AC', 'C', '+/-' & '=' buttons
@@ -92,13 +96,11 @@ num.forEach(button => button.addEventListener('mousedown', e => {
         display.textContent = '-' + clickedValue;
         str = display.textContent;
         op += str;
-        console.log(inputArr)
         d = false;
     } else {
         display.textContent = str + clickedValue;
         str = display.textContent;
         op += clickedValue;
-        console.log(inputArr)
     }
 }));
 
@@ -116,7 +118,6 @@ operator.forEach(button => button.addEventListener('mousedown', e => {
         display.textContent = str + clickedValue;
         str = display.textContent;
         plusMinusButton.addEventListener('mousedown', updateDisplay);
-        console.log(inputArr)
     }
 }));
 
