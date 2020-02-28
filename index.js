@@ -16,7 +16,7 @@ function multiply(args) {
 }
 
 function divide(args) {
-    if (args[2] === 0) return 'Error Dumbass!'
+    if (args[1] === 0) return 'issa dumbo!'
     else
         return args.reduce((accum, arg) => accum / arg, args[0] * args[0]);
 }
@@ -38,7 +38,8 @@ function updateDisplay(e) {
         inputArr.push(op);
         while (inputArr.length >= 3) {
             x = operate([parseFloat(inputArr[0]), parseFloat(inputArr[2])], inputArr[1]);
-            x = Math.round((x + Number.EPSILON) * 100) / 100;
+            if (typeof x === 'number')
+                x = Math.round((x + Number.EPSILON) * 100) / 100;
             display.textContent = x;
             inputArr = inputArr.slice(3);
             inputArr.unshift(x);
