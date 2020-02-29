@@ -6,6 +6,11 @@ body {
   user-select: none;
 }
 
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+}
+
 #container {
   height: 60vh;
   width: 40vh;
